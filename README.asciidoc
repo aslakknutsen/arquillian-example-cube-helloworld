@@ -8,13 +8,36 @@ environments.
 Uses the Arquillian Chameleon container to manage a WildFly 9.0.0.Final
 server with distribution download.
 
+[source]
+----
+mvn test -Pwildfly-local
+----
+
 === Docker image of WildFly 9.0.0.Final
 
 Uses Arquillian Cube to start a WildFly 9.0.0.Final image and
 Arquillian Chameleon to communicate with the startet server via the
 Remote adapter.
 
+[source]
+----
+mvn test -Pwildfly-docker
+----
+
 === Prebuilt deployment Docker image of WildFly 9.0.0.Final
 
 Uses Arquillian Cube ContainerLess adapter to build a WildFly 9.0.0.Final
 Docker image containing the Deployment
+
+[source]
+----
+mvn test -Pwildfly-docker-image
+----
+
+
+=== Resources
+
+* http://arquillian.org/guides/getting_started/[Getting Started]
+* http://arquillian.org/[Arquillian]
+* https://github.com/arquillian/arquillian-cube/[Arquillian Cube]
+* https://github.com/arquillian/arquillian-container-chameleon/[Arquillian Chameleon]
