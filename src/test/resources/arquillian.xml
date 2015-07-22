@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<arquillian xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://jboss.org/schema/arquillian"
+    xsi:schemaLocation="http://jboss.org/schema/arquillian http://jboss.org/schema/arquillian/arquillian_1_0.xsd">
+
+    <extension qualifier="docker">
+        <property name="dockerContainers">
+            wildfly-docker:
+              buildImage:
+                dockerfileLocation: src/test/resources/wildfly
+                noCache: true
+                remove: true
+              portBindings: [8081->8080/tcp, 9991->9990/tcp]
+            wildfly-image:
+              buildImage:
+                dockerfileLocation: src/test/resources/wildfly-image
+                noCache: true
+                remove: true
+              portBindings: [8081->8080/tcp]
+        </property>
+    </extension>
+
+    <container qualifier="wildfly-local" default="true">
+        <configuration>
+            <property name="chameleonTarget">wildfly:9.0.0.Final:managed</property>
+        </configuration>
+    </container>
+    <container qualifier="wildfly-docker" default="false">
+        <configuration>
+            <property name="chameleonTarget">wildfly:9.0.0.Final:remote</property>
+            <property name="username">admin</property>
+            <property name="password">Admin#70365</property>
+        </configuration>
+    </container>
+    <container qualifier="wildfly-docker-image" default="false">
+        <configuration>
+            <property name="containerlessDocker">wildfly-image</property>
+            <property name="embeddedPort">8081</property>
+        </configuration>
+    </container>
+</arquillian>
