@@ -8,7 +8,7 @@
 
     <properties>
         <version.arquillian_core>1.1.8.Final</version.arquillian_core>
-        <version.arquillian_chameleon>1.0.0.Alpha3</version.arquillian_chameleon>
+        <version.arquillian_chameleon>1.0.0.Alpha4</version.arquillian_chameleon>
         <version.arquillian_cube>1.0.0.Alpha7</version.arquillian_cube>
         <version.jboss.javaee-7_api>1.0.3.Final</version.jboss.javaee-7_api>
         <version.restassured>2.4.1</version.restassured>
